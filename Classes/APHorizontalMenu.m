@@ -190,6 +190,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     self.isTouchAnimation = YES;
     [self setCurrentIndex:indexPath animated:YES];
+    if ([self.delegate respondsToSelector:@selector(horizontalMenu:didSelectPosition:)]) {
+        [self.delegate horizontalMenu:self didSelectPosition:indexPath.row];
+    }
 }
 
 #pragma mark - Scroll control
@@ -230,10 +233,6 @@
         
         if(_selectedIndex != indexPath.row) {
             _selectedIndex = indexPath.row;
-            
-            if ([self.delegate respondsToSelector:@selector(horizontalMenu:didSelectPosition:)]) {
-                [self.delegate horizontalMenu:self didSelectPosition:indexPath.row];
-            }
         }
     }
 }
