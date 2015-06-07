@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.screenshots      = "https://raw.githubusercontent.com/apascual/APHorizontalMenu/master/Images/iPhone.png", "https://raw.githubusercontent.com/apascual/APHorizontalMenu/master/Images/iPad.png"
   s.license          = 'MIT'
   s.author           = { "Abel Pascual" => "abelpascual@gmail.com" }
-  s.source           = { :git => "https://github.com/apascual/APHorizontalMenu.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/iChernov/APHorizontalMenu.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/Abel_Pascual'
 
   s.platform     = :ios, "6.0"
