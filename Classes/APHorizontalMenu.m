@@ -39,7 +39,7 @@
 - (void)customInit {
     
     _selectedIndex = AP_HORIZONTAL_MENU_SELECTED_INDEX_DEFAULT;
-    _cellSelectedColor = AP_HORIZONTAL_MENU_CELL_SELECTED_COLOR_DEFAULT;
+    _cellSelectedColor = [[[UIApplication sharedApplication] delegate] window].tintColor;
     _cellBackgroundColor = AP_HORIZONTAL_MENU_CELL_BACKGROUND_COLOR_DEFAULT;
     _textColor = AP_HORIZONTAL_MENU_TEXT_COLOR_DEFAULT;
     _textSelectedColor = AP_HORIZONTAL_MENU_TEXT_SELECTED_COLOR_DEFAULT;
@@ -168,6 +168,9 @@
         
         UILabel* txtItemTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.cellWidth, self.frame.size.height)];
         txtItemTitle.font = self.textFont;
+        txtItemTitle.minimumScaleFactor = 0.5;
+        txtItemTitle.adjustsFontSizeToFitWidth = YES;
+        txtItemTitle.numberOfLines = 2;
         txtItemTitle.textColor = self.textColor;
         txtItemTitle.highlightedTextColor = self.textSelectedColor;
         txtItemTitle.textAlignment = NSTextAlignmentCenter;
@@ -182,6 +185,7 @@
     [cell setSelectedBackgroundView:bgColorView];
     
     UILabel* txtItemTitle = (UILabel *)[cell viewWithTag:1001];
+    
     txtItemTitle.text = [self.values objectAtIndex:indexPath.row];
     
     return cell;
